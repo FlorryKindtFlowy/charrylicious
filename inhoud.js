@@ -121,7 +121,7 @@ window.CHARRY = {
       naam: 'Iets fris & de biertjes club',
       titel: 'Iets fris & de biertjes club',
       zin: 'Iets fris voor bij de babbel.',
-      foto: 'bubbels.jpg',
+      foto: 'icetea.jpg',
       kleur: '#F9CF86',
       items: ['Water Chaudfontaine', 'Tönissteiner orange', 'Coca-Cola regular of zero', 'Royal Bliss tonic of agrum', 'Appeltiser', 'Appelsap of appel-kersensap', 'Fruitsap', 'Stella Artois, ook 0%', 'Liefmans, ook 0%', 'Badou, ook 0% of 75cl', 'Orval', 'Ypra', 'Omer', 'St. Bernardus'],
       noot: ''
