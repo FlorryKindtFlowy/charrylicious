@@ -46,10 +46,10 @@ window.CHARRY = {
       datum: '2026-10-17',
       titel: 'Hutspot met worst',
       label: 'Dagschotel',
-      uur: 'zolang de voorraad strekt',
+      uur: 'enkel deze zaterdag · 20,00 per persoon',
       tekst: 'Een dampende pot hutspot zoals bij moeke, met een klontje boter erbij. Echt hutspotweer!',
       foto: 'hutspot.jpg',
-      verplicht: false
+      verplicht: true
     },
     {
       datum: '2026-10-24',
