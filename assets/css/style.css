@@ -313,3 +313,32 @@ address{font-style:normal;font-size:18px}
   .js .reveal,.js .reveal-left,.js .reveal-right{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
+
+/* ---------- intro bij de kaart + veelgestelde vragen ---------- */
+.intro-txt{max-width:640px;margin:18px auto 0;color:var(--koffie-zacht)}
+.faq{position:relative;overflow:hidden}
+.faq-flower-1{left:4%;top:120px;width:90px}
+.faq-flower-2{right:5%;bottom:40px;width:120px}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:16px;counter-reset:vraag}
+.faq-list details{--kl:var(--suiker);counter-increment:vraag;background:var(--kl);border-radius:var(--r-m);transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s ease}
+.faq-list details:nth-child(4n+2){--kl:var(--boter)}
+.faq-list details:nth-child(4n+3){--kl:var(--munt-licht)}
+.faq-list details:nth-child(4n+4){--kl:var(--blush)}
+.faq-list details:nth-child(odd){transform:rotate(-.6deg)}
+.faq-list details:nth-child(even){transform:rotate(.6deg)}
+.faq-list details:hover{transform:rotate(0) translateY(-3px)}
+.faq-list details[open]{background:#fff;transform:rotate(0) scale(1.02);box-shadow:0 0 0 4px var(--kl),var(--shadow)}
+.faq-list summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;min-height:64px;padding:12px 18px 12px 14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;color:var(--koffie)}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::before{content:counter(vraag);flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:#fff;color:var(--kersrood);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;box-shadow:0 4px 10px rgba(107,63,42,.1);transition:background .3s,color .3s,transform .5s var(--ease)}
+.faq-list details[open] summary::before{background:var(--kersrood);color:#fff;transform:rotate(-12deg) scale(1.08)}
+.faq-list .q{flex:1}
+.faq-list details[open] .q{color:var(--kersrood)}
+.faq-list summary::after{content:"";flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--mallow) url("../img/flower-pink.webp") center/26px no-repeat;transition:transform .5s var(--ease)}
+.faq-list details[open] summary::after{transform:rotate(180deg) scale(1.15)}
+.faq-list .a{padding:0 26px 22px 72px}
+.faq-list .a p{margin:0}
+.faq-list details[open] .a{animation:faqPop .45s var(--ease) both}
+@keyframes faqPop{0%{opacity:0;transform:translateY(-8px) scale(.97)}100%{opacity:1;transform:none}}
+@media (max-width:600px){.faq-list details[open]{transform:none}.faq-list summary{font-size:18px}.faq-list .a{padding:0 20px 20px 20px}.faq-flower-1,.faq-flower-2{display:none}}
+@media (prefers-reduced-motion:reduce){.faq-list details,.faq-list details[open] .a,.faq-list summary::before,.faq-list summary::after{transition:none;animation:none}}
