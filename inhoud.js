@@ -45,7 +45,7 @@ window.CHARRY = {
     {
       datum: '2026-10-17',
       titel: 'Hutspot met worst',
-      label: 'Event',
+      label: 'Gerecht van de dag',
       uur: 'enkel deze zaterdag · 20,00 per persoon',
       tekst: 'Een dampende pot hutspot zoals bij moeke, met een klontje boter erbij. Echt hutspotweer!',
       foto: 'hutspot.jpg',
@@ -54,7 +54,7 @@ window.CHARRY = {
     {
       datum: '2026-10-24',
       titel: 'Spaghetti avond',
-      label: 'Event',
+      label: 'Gerecht van de dag',
       uur: 'vanaf 18u30 · 17,00 per persoon',
       tekst: 'Een grote kom spaghetti bolognese met vers geraspte kaas en een gezellige avond aan tafel.',
       foto: 'spaghetti.jpg',
