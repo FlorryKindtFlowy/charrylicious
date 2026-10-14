@@ -181,6 +181,11 @@ button.day.event[aria-pressed="true"]{box-shadow:0 0 0 3px var(--koffie),0 8px 1
 .charry-small img{object-position:50% 40%}
 .charry-text{flex:1 1 380px;min-width:0}
 .charry-text p{font-size:19px}
+.roots{margin-top:28px;background:#E3F1EB;border-radius:28px;padding:24px 28px;border:2px dashed #96C8B4}
+.roots h3{font-family:var(--display);font-weight:800;font-size:26px;color:#3E8B78;margin:0 0 8px}
+.roots p{font-size:17px;margin:0 0 10px}
+.roots p:last-child{margin-bottom:0}
+.roots a{color:#3E8B78;font-weight:700}
 .signature{font-family:var(--display);font-weight:800;font-size:34px;color:var(--kersroze);display:flex;align-items:center;gap:12px}
 
 /* strip */
