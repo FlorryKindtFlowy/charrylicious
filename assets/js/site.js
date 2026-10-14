@@ -155,6 +155,35 @@
   if (prev) prev.addEventListener('click', function () { maand = new Date(maand.getFullYear(), maand.getMonth() - 1, 1); tekenKalender(); });
   if (next) next.addEventListener('click', function () { maand = new Date(maand.getFullYear(), maand.getMonth() + 1, 1); tekenKalender(); });
 
+  /* ---------- events voor Google (schema.org), automatisch uit de agenda ---------- */
+  (function () {
+    if (!events.length) return;
+    var SITE = 'https://charrylicious.be/';
+    var plaats = { '@type': 'Place', name: 'Charrylicious', address: { '@type': 'PostalAddress', streetAddress: D.adres || 'Avelgemstraat 121', postalCode: '8550', addressLocality: 'Zwevegem', addressCountry: 'BE' } };
+    var lijst = events.map(function (e) {
+      var tijd = /(\d{1,2})u(\d{2})?/.exec(e.uur || '');
+      var start = iso(e.dt) + (tijd ? 'T' + String(tijd[1]).padStart(2, '0') + ':' + (tijd[2] || '00') + ':00' + tijdzone(e.dt) : '');
+      var ev = {
+        '@context': 'https://schema.org', '@type': 'FoodEvent', name: e.titel + ' bij Charrylicious',
+        description: e.tekst, startDate: start, eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', location: plaats,
+        organizer: { '@type': 'Organization', name: 'Charrylicious', url: SITE },
+        image: [SITE + IMG + (e.foto || 'og-image.jpg')], url: SITE + '#agenda'
+      };
+      var prijs = /(\d+)[,.](\d{2})/.exec(e.uur || '');
+      if (prijs) ev.offers = { '@type': 'Offer', price: prijs[1] + '.' + prijs[2], priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: SITE + '#reserveren' };
+      return ev;
+    });
+    var sc = document.createElement('script'); sc.type = 'application/ld+json';
+    sc.textContent = JSON.stringify(lijst); document.head.appendChild(sc);
+  })();
+  function tijdzone(dt) {
+    // zomertijd in België: laatste zondag van maart tot laatste zondag van oktober
+    var j = dt.getFullYear();
+    var lz = function (m) { var d = new Date(j, m + 1, 0); d.setDate(d.getDate() - d.getDay()); return d; };
+    return (dt >= lz(2) && dt < lz(9)) ? '+02:00' : '+01:00';
+  }
+
   /* ---------- suggestie van het weekend ---------- */
   (function () {
     var box = $('#suggestie'); var s = D.suggestie;
@@ -222,6 +251,13 @@
     });
     $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }); });
   }
+
+  /* ---------- veelgestelde vragen: maar één tegelijk open ---------- */
+  $$('.faq-list details').forEach(function (d, i, alle) {
+    d.addEventListener('toggle', function () {
+      if (d.open) alle.forEach(function (x) { if (x !== d) x.open = false; });
+    });
+  });
 
   /* ---------- binnenschuiven bij scrollen ---------- */
   var reveals = $$('.reveal, .reveal-left, .reveal-right');
