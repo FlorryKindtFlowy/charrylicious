@@ -181,12 +181,30 @@ button.day.event[aria-pressed="true"]{box-shadow:0 0 0 3px var(--koffie),0 8px 1
 .charry-small img{object-position:50% 40%}
 .charry-text{flex:1 1 380px;min-width:0}
 .charry-text p{font-size:19px}
-.roots{margin-top:28px;background:#E3F1EB;border-radius:28px;padding:24px 28px;border:2px dashed #96C8B4}
-.roots h3{font-family:var(--display);font-weight:800;font-size:26px;color:#3E8B78;margin:0 0 8px}
-.roots p{font-size:17px;margin:0 0 10px}
-.roots p:last-child{margin-bottom:0}
-.roots a{color:#3E8B78;font-weight:700}
 .signature{font-family:var(--display);font-weight:800;font-size:34px;color:var(--kersroze);display:flex;align-items:center;gap:12px}
+
+/* de barakke */
+.barakke{background:#E3F1EB;position:relative;overflow:hidden;padding:96px 0}
+.barakke + .strip{padding-top:64px}
+.barakke-row{display:flex;flex-wrap:wrap;align-items:center;gap:56px}
+.barakke-text{flex:1 1 420px}
+.barakke h2{font-weight:800;font-size:clamp(34px,5vw,52px);color:var(--diepmunt)}
+.barakke .kicker{color:var(--diepmunt)}
+.barakke-ode{margin-top:22px;padding:18px 22px;border:2px dashed var(--munt);border-radius:var(--r-s);background:#fff}
+.barakke-ode a{color:var(--diepmunt);font-weight:700}
+.barakke-visual{flex:1 1 420px;position:relative;min-height:600px}
+.polaroid{position:absolute;background:#fff;padding:12px 12px 0;border-radius:6px;box-shadow:var(--shadow);transition:transform .6s var(--ease)}
+.polaroid img{width:100%;height:auto;border-radius:3px}
+.polaroid figcaption{font-family:var(--display);font-weight:700;color:var(--koffie);text-align:center;font-size:20px;padding:10px 0 14px}
+.p-one{width:50%;left:0;top:0;transform:rotate(-4deg)}
+.p-two{width:56%;right:0;top:44%;transform:rotate(3.5deg)}
+.polaroid:hover{transform:rotate(0) scale(1.03);z-index:3}
+@media (max-width:860px){
+  .barakke{padding:64px 0}
+  .barakke-row{gap:32px}
+  .barakke-visual{min-height:0;display:flex;flex-direction:column;gap:20px;align-items:center}
+  .polaroid{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:84%;max-width:380px}
+}
 
 /* strip */
 .strip{display:flex;flex-wrap:wrap;gap:16px;padding-bottom:96px}
