@@ -94,7 +94,7 @@ window.CHARRY = {
       naam: 'Cold homemade drinks',
       titel: 'Cold homemade drinks',
       zin: 'Zelf gemaakt, ijskoud geschonken.',
-      foto: 'tafeltje.jpg',
+      foto: 'icetea.jpg',
       kleur: '#96C8B4',
       items: ['Ice tea framboos, citroen en honing', 'Ice tea gember en honing', 'Ice tea blauwe bessen, citroen en honing', 'Huisgemaakte milkshake vanille of chocolade', 'Huisgemaakte milkshake banaan of aardbei'],
       noot: 'Alles huisgemaakt, elke dag vers.'
