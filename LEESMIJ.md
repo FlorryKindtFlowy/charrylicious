@@ -12,6 +12,8 @@ Gemaakt door Flowy, oktober 2026. Eén pagina, zonder reservatiesysteem: reserve
 | `assets/js/site.js` | De bewegingen: kalender, tabbladen, open/gesloten, binnenschuiven |
 | `assets/img/` | Foto's, logo en bloemetjes (al klein gemaakt voor het web) |
 | `assets/fonts/` | Grandstander (titels) en Nunito (tekst) |
+| `robots.txt`, `sitemap.xml` | Voor Google. Pas `lastmod` in de sitemap aan na een grote wijziging |
+| `llms.txt` | Korte samenvatting voor AI tools (ChatGPT, Perplexity, Gemini) |
 
 ## Iets aanpassen
 
@@ -22,6 +24,11 @@ Open `inhoud.js` met een gewone teksteditor of rechtstreeks op GitHub (potloodje
 - **Openingsuren:** `['14:00', '20:00']` of `null` voor gesloten. De site toont zelf "Nu open tot 20u" of "Zaterdag terug open om 14u".
 - **Uitzondering** (bv. vakantie): vul `uitzondering: 'Gesloten van 1 tot 7 januari'` in.
 - **Foto bij een event:** zet de foto in `assets/img/` en vul de bestandsnaam in bij `foto`.
+
+## Vindbaarheid (SEO)
+
+- De events in `inhoud.js` worden automatisch als event voor Google klaargezet (met datum, uur en prijs uit `uur`). Schrijf het uur als `18u30` en de prijs als `17,00`.
+- **Uren of afspraken veranderd?** Pas ze dan ook aan in de veelgestelde vragen in `index.html` (twee keer: in het blok bovenaan bij `FAQPage` en in de sectie `vragen`), en in `llms.txt`.
 
 ## Online zetten met GitHub Pages
 

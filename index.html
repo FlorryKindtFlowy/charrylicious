@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charrylicious · Koffie- en eethuisje in Zwevegem</title>
-<meta name="description" content="Charrylicious is een roze koffie- en eethuisje in Zwevegem. Huisgemaakte cookies, ice tea, brownies en een goestingske. Open zaterdag en zondag. Reserveren met een berichtje.">
+<title>Charrylicious · Koffiebar en eethuisje in Zwevegem</title>
+<meta name="description" content="Charrylicious is een roze koffiebar en eethuisje in Zwevegem. Koffie, huisgemaakte cookies, brownies, ijscoupes, ice tea en een goestingske. Open zaterdag en zondag van 14u tot 20u. Reserveren met een berichtje.">
 <meta name="theme-color" content="#FFF3F5">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:site_name" content="Charrylicious">
 <meta property="og:url" content="https://charrylicious.be/">
 <link rel="canonical" href="https://charrylicious.be/">
 <meta property="og:title" content="Charrylicious · Koffie, koekjes & een goestingske">
@@ -21,14 +23,36 @@
 {
   "@context": "https://schema.org",
   "@type": "CafeOrCoffeeShop",
+  "@id": "https://charrylicious.be/#zaak",
   "name": "Charrylicious",
-  "description": "Koffie- en eethuisje in Zwevegem met huisgemaakte cookies, ice tea en gerechten.",
+  "description": "Roze koffiebar en eethuisje in Zwevegem met koffie, huisgemaakte cookies en brownies, ijscoupes, huisgemaakte ice tea en milkshakes, croques en borrelplanken. Op het adres waar vroeger mosselrestaurant De Barakke zat.",
   "telephone": "+32479388285",
   "image": "https://charrylicious.be/assets/img/og-image.jpg",
+  "logo": "https://charrylicious.be/assets/img/logo.webp",
   "url": "https://charrylicious.be/",
-  "address": {"@type": "PostalAddress", "streetAddress": "Avelgemstraat 121", "postalCode": "8550", "addressLocality": "Zwevegem", "addressCountry": "BE"},
+  "priceRange": "€",
+  "servesCuisine": ["Koffie", "Huisgemaakte cookies", "Gebak en brownies", "IJs", "Belgisch"],
+  "hasMenu": "https://charrylicious.be/#kaart",
+  "acceptsReservations": "Reserveren enkel met een sms naar 0479 38 82 85. Voor events is reserveren verplicht.",
+  "areaServed": "Zwevegem",
+  "address": {"@type": "PostalAddress", "streetAddress": "Avelgemstraat 121", "postalCode": "8550", "addressLocality": "Zwevegem", "addressRegion": "West-Vlaanderen", "addressCountry": "BE"},
   "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "14:00", "closes": "20:00"}],
   "sameAs": ["https://www.instagram.com/_charrylicious_/"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Moet ik reserveren bij Charrylicious?", "acceptedAnswer": {"@type": "Answer", "text": "Voor een koffie of een goestingske mag je gewoon binnenwandelen. Voor events en dagschotels is reserveren altijd verplicht. Reserveren gaat enkel met een sms naar 0479 38 82 85, bellen kan niet."}},
+    {"@type": "Question", "name": "Wanneer is Charrylicious open?", "acceptedAnswer": {"@type": "Answer", "text": "Charrylicious is open op zaterdag en zondag van 14u tot 20u. Van maandag tot vrijdag zijn we gesloten, behalve bij een speciaal event op de agenda."}},
+    {"@type": "Question", "name": "Waar ligt Charrylicious?", "acceptedAnswer": {"@type": "Answer", "text": "Charrylicious ligt aan de Avelgemstraat 121 in 8550 Zwevegem, op het adres waar vroeger mosselrestaurant De Barakke zat."}},
+    {"@type": "Question", "name": "Hebben jullie alcoholvrije wijn?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Elke wijn op de kaart, wit, rosé en rood, bestaat ook in een alcoholvrije versie van 0%."}},
+    {"@type": "Question", "name": "Is alles huisgemaakt?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. De ice tea, milkshakes, cookies, brownies, chocolademousse en picon maken we zelf, elke dag vers."}},
+    {"@type": "Question", "name": "Kan ik bij Charrylicious ijs eten?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Er zijn ijscoupes zoals dame blanche, brésilienne en bananasplit, schepijs, sorbet van passievrucht en affogato."}},
+    {"@type": "Question", "name": "Kan ik met een groep komen?", "acceptedAnswer": {"@type": "Answer", "text": "Zeker. Kom je met 6 of meer, laat het dan een dag op voorhand weten met een sms naar 0479 38 82 85."}}
+  ]
 }
 </script>
 </head>
@@ -46,6 +70,7 @@
       <a href="#kaart">De kaart</a>
       <a href="#charry">Over Charry</a>
       <a href="#vinden">Uren &amp; adres</a>
+      <a href="#vragen">Vragen</a>
       <a class="btn btn-mint js-sms" href="#reserveren">
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Stuur een berichtje
@@ -62,7 +87,7 @@
       <div class="hero-card intro">
         <p class="open-pill" id="open-pill"><span class="dot" aria-hidden="true"></span><span>Open zaterdag en zondag · 14u tot 20u</span></p>
         <h1>Koffie, koekjes &amp; een <span class="mint">goestingske</span></h1>
-        <p class="lead">Een zachte, roze plek om even op adem te komen. Alles huisgemaakt: van de ice tea tot de cookies, en in de winter een dampende hutspot.</p>
+        <p class="lead">Een zachte, roze koffiebar in Zwevegem om even op adem te komen. Alles huisgemaakt: van de ice tea tot de cookies en brownies, en in de winter een dampende hutspot.</p>
         <a class="next-event" id="next-event" href="#agenda" hidden></a>
         <div class="btn-row">
           <a class="btn btn-red js-sms" href="#reserveren">
@@ -127,6 +152,7 @@
         <p class="kicker">Altijd op de kaart</p>
         <h2 id="kaart-titel">Kies je club</h2>
         <span class="rule" aria-hidden="true"></span>
+        <p class="intro-txt">Op de kaart van onze koffiebar in Zwevegem: koffie, cappuccino en latte, verse warme chocolademelk, huisgemaakte cookies en brownies, ijscoupes en schepijs, huisgemaakte ice tea en milkshakes, croques, borrelplanken en wijn die ook alcoholvrij bestaat.</p>
       </div>
       <div class="menu-card reveal">
         <div class="tabs" role="tablist" aria-label="Clubs op de kaart" id="tabs"></div>
@@ -151,25 +177,11 @@
         <p>Op mijn kaart werk ik met clubs: de coffee club, de cookie club, de iets met &amp; iets zonder club… Kies gerust je favoriete club, of probeer ze allemaal.</p>
         <p>Kom binnen voor een koffie en blijf hangen voor een goestingske. Tot snel!</p>
         <p class="signature">Charry <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24"><path fill="#F5515B" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.6 4.5c2.2 0 3.7 1.3 4.4 2.6.7-1.3 2.2-2.6 4.4-2.6 3.6 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z"/></svg></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- DE BARAKKE -->
-  <section class="section barakke" id="de-barakke" aria-labelledby="barakke-titel">
-    <div class="wrap barakke-row">
-      <div class="barakke-text reveal-left">
-        <p class="kicker">Waar het allemaal begon</p>
-        <h2 id="barakke-titel">45 jaar De Barakke</h2>
-        <span class="rule" aria-hidden="true"></span>
-        <p>Voor Charrylicious hier zijn deuren opende, was dit adres in de Avelgemstraat in Zwevegem 45 jaar lang <strong>De Barakke</strong>: het mosselrestaurant van mama en papa.</p>
-        <p>Ik groeide op tussen de dampende mosselpotten, de feestjes en de lange avonden aan tafel. Daar leerde ik dat lekker eten en gezelligheid altijd samen horen.</p>
-        <p>Vandaag schrijf ik in hetzelfde pand een nieuw hoofdstuk, op mijn eigen manier. Een beetje De Barakke zit dus in elke koffie en elk bord dat hier op tafel komt.</p>
-        <p class="barakke-ode">Die liefde voor koken zit in de familie: mijn zus deelt receptjes en private dining at home bij <a href="http://www.odecuisine.be/" target="_blank" rel="noopener">Ode Cuisine</a>. Ga zeker eens piepen!</p>
-      </div>
-      <div class="barakke-visual reveal-right">
-        <figure class="polaroid p-one"><img src="assets/img/barakke-feest.jpg" alt="Mama en papa van Charry, de uitbaters van mosselrestaurant De Barakke in Zwevegem" width="998" height="1250" loading="lazy"><figcaption>mama &amp; papa</figcaption></figure>
-        <figure class="polaroid p-two"><img src="assets/img/barakke-sombrero.jpg" alt="Mama en papa van Charry met grote sombrero's op een feestje" width="1024" height="768" loading="lazy"><figcaption>altijd in voor een feestje</figcaption></figure>
+        <div class="roots">
+          <h3>Waar het allemaal begon</h3>
+          <p>Op dit adres in Zwevegem zat vroeger <strong>De Barakke</strong>, het mosselrestaurant van mama en papa. Ik groeide hier op tussen de mosselpotten en leerde dat lekker eten en gezelligheid altijd samen horen.</p>
+          <p>Die liefde voor koken zit in de familie: mijn zus deelt <a href="http://www.odecuisine.be/" target="_blank" rel="noopener">receptjes en private dining at home</a> bij <a href="http://www.odecuisine.be/" target="_blank" rel="noopener">Ode Cuisine</a>. Ga zeker eens piepen!</p>
+        </div>
       </div>
     </div>
   </section>
@@ -200,6 +212,26 @@
         </ul>
       </div>
       <figure class="reserve-photo reveal-right"><img src="assets/img/charry-schouders.jpg" alt="Charry haalt lachend haar schouders op" width="700" height="700" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- VEELGESTELDE VRAGEN -->
+  <section class="section faq" id="vragen" aria-labelledby="faq-titel">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker">Goed om te weten</p>
+        <h2 id="faq-titel">Veelgestelde vragen</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="faq-list reveal">
+        <details><summary>Moet ik reserveren bij Charrylicious?</summary><p>Voor een koffie of een goestingske mag je gewoon binnenwandelen. Voor events en dagschotels is reserveren altijd verplicht. Reserveren gaat enkel met een sms naar <span class="js-phone">0479 38 82 85</span>, bellen kan niet.</p></details>
+        <details><summary>Wanneer is Charrylicious open?</summary><p>We zijn open op zaterdag en zondag van 14u tot 20u. Van maandag tot vrijdag zijn we gesloten, behalve bij een speciaal event op de agenda.</p></details>
+        <details><summary>Waar ligt Charrylicious?</summary><p>Aan de Avelgemstraat 121 in 8550 Zwevegem, op het adres waar vroeger mosselrestaurant De Barakke zat.</p></details>
+        <details><summary>Hebben jullie alcoholvrije wijn?</summary><p>Ja. Elke wijn op de kaart, wit, rosé en rood, bestaat ook in een alcoholvrije versie van 0%.</p></details>
+        <details><summary>Is alles huisgemaakt?</summary><p>Ja. De ice tea, milkshakes, cookies, brownies, chocolademousse en picon maken we zelf, elke dag vers.</p></details>
+        <details><summary>Kan ik bij Charrylicious ijs eten?</summary><p>Ja. Er zijn ijscoupes zoals dame blanche, brésilienne en bananasplit, schepijs, sorbet van passievrucht en affogato.</p></details>
+        <details><summary>Kan ik met een groep komen?</summary><p>Zeker. Kom je met 6 of meer, laat het dan een dag op voorhand weten met een berichtje.</p></details>
+      </div>
     </div>
   </section>
 
