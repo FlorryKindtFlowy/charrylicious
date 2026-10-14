@@ -45,7 +45,7 @@ window.CHARRY = {
     {
       datum: '2026-10-17',
       titel: 'Hutspot met worst',
-      label: 'Dagschotel',
+      label: 'Event',
       uur: 'enkel deze zaterdag · 20,00 per persoon',
       tekst: 'Een dampende pot hutspot zoals bij moeke, met een klontje boter erbij. Echt hutspotweer!',
       foto: 'hutspot.jpg',
@@ -115,15 +115,6 @@ window.CHARRY = {
       foto: 'brownies.jpg',
       kleur: '#FFD4DC',
       items: ['Huisgemaakte brownies', 'Chocolademousse', 'Coupe vanille', 'Coupe chocolade', 'Coupe dame blanche', 'Coupe brésilienne', 'Coupe bananasplit', 'Sorbet van passievrucht', 'Affogato', 'Schepijs'],
-      noot: ''
-    },
-    {
-      naam: 'Iets fris & de biertjes club',
-      titel: 'Iets fris & de biertjes club',
-      zin: 'Iets fris voor bij de babbel.',
-      foto: 'icetea.jpg',
-      kleur: '#F9CF86',
-      items: ['Water Chaudfontaine', 'Tönissteiner orange', 'Coca-Cola regular of zero', 'Royal Bliss tonic of agrum', 'Appeltiser', 'Appelsap of appel-kersensap', 'Fruitsap', 'Stella Artois, ook 0%', 'Liefmans, ook 0%', 'Badou, ook 0% of 75cl', 'Orval', 'Ypra', 'Omer', 'St. Bernardus'],
       noot: ''
     },
     {
