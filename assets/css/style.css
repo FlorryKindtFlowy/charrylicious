@@ -336,9 +336,11 @@ address{font-style:normal;font-size:18px}
 .faq-list details[open] .q{color:var(--kersrood)}
 .faq-list summary::after{content:"";flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--mallow) url("../img/flower-pink.webp") center/26px no-repeat;transition:transform .5s var(--ease)}
 .faq-list details[open] summary::after{transform:rotate(180deg) scale(1.15)}
-.faq-list .a{padding:0 26px 22px 72px}
+.faq-list .a{padding:6px 34px 28px 78px}
+.faq-list .a p{line-height:1.7}
+.faq-list summary:focus-visible{outline:3px solid var(--diepmunt);outline-offset:-3px;border-radius:var(--r-m)}
 .faq-list .a p{margin:0}
 .faq-list details[open] .a{animation:faqPop .45s var(--ease) both}
 @keyframes faqPop{0%{opacity:0;transform:translateY(-8px) scale(.97)}100%{opacity:1;transform:none}}
-@media (max-width:600px){.faq-list details[open]{transform:none}.faq-list summary{font-size:18px}.faq-list .a{padding:0 20px 20px 20px}.faq-flower-1,.faq-flower-2{display:none}}
+@media (max-width:600px){.faq-list details[open]{transform:none}.faq-list summary{font-size:18px}.faq-list .a{padding:4px 24px 24px 24px}.faq-flower-1,.faq-flower-2{display:none}}
 @media (prefers-reduced-motion:reduce){.faq-list details,.faq-list details[open] .a,.faq-list summary::before,.faq-list summary::after{transition:none;animation:none}}
