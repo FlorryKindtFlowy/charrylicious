@@ -48,7 +48,7 @@ window.CHARRY = {
       label: 'Dagschotel',
       uur: 'zolang de voorraad strekt',
       tekst: 'Een dampende pot hutspot zoals bij moeke, met een klontje boter erbij. Echt hutspotweer!',
-      foto: '',
+      foto: 'hutspot.jpg',
       verplicht: false
     },
     {
@@ -76,7 +76,7 @@ window.CHARRY = {
       naam: 'Coffee club',
       titel: 'The coffee & hot drinks club',
       zin: 'Warm, romig en met liefde gezet.',
-      foto: 'toog.jpg',
+      foto: 'cappuccino.jpg',
       kleur: '#FFD4DC',
       items: ['Koffie', 'Espresso', 'Americano', 'Cappuccino, gewoon of met slagroom', 'Latte macchiato', 'Latte macchiato vanille, caramel of speculaas', 'Latte met vanille of chocolade ijs', 'Iced latte traditioneel', 'Espresso latte met honing', 'Iced espresso latte met honing', 'Iced espresso latte met honing en ijs', 'Verse warme chocolademelk: puur, melk, wit, caramel of pink', 'Verse munt thee', 'Rozenbottel thee', 'Kamille thee'],
       noot: 'Chocolademelk ook met slagroom. Extra water, melk of slagroom kan altijd.'
@@ -103,7 +103,7 @@ window.CHARRY = {
       naam: 'Een goestingske',
       titel: 'Een goestingske',
       zin: 'Voor de kleine en de grote honger.',
-      foto: 'toog-bloemen.jpg',
+      foto: 'borrelhapjes.jpg',
       kleur: '#F9B0B0',
       items: ['Portie chips, zout of paprika', 'Portie kaas', 'Portie olijven', 'Borrelplank met kaas en olijven', 'Croque met een hoek af', 'Croque monsieur met garnituur', 'Croque boemboem', 'Pasta bolognese'],
       noot: 'Pasta bolognese vanaf 17u.'
@@ -130,7 +130,7 @@ window.CHARRY = {
       naam: 'Iets met & iets zonder',
       titel: 'Iets met & iets zonder club',
       zin: 'Met of zonder alcohol, altijd feestelijk.',
-      foto: 'bubbels-2.jpg',
+      foto: 'aperitief.jpg',
       kleur: '#96C8B4',
       items: ['Cava', 'Huisgemaakte picon', 'Witte wijn, ook 0%', 'Rosé wijn, ook 0%', 'Rode wijn, ook 0%'],
       noot: 'Elke wijn bestaat ook alcoholvrij.'
