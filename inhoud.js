@@ -65,8 +65,8 @@ window.CHARRY = {
   // ---------------- SUGGESTIE VAN HET WEEKEND ----------------
   // Laat titel leeg '' om dit blokje te verbergen
   suggestie: {
-    titel: "Pannenkoeken op oma's wijze",
-    tekst: 'Onze suggestie van het weekend. Zoals oma ze bakte, met een flinke portie liefde.'
+    titel: 'Psst… te zien in de zaak',
+    tekst: 'Wat er dit weekend op het bord staat, verklappen we nog niet. Kom proeven en laat je verrassen!'
   },
 
   // ---------------- DE KAART ----------------
