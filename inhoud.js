@@ -17,7 +17,7 @@ window.CHARRY = {
 
   telefoon: '0479 38 82 85',
   telefoonInternationaal: '+32479388285',
-  adres: 'Avelhemstraat 121',
+  adres: 'Avelgemstraat 121',
   gemeente: '8550 Zwevegem',
   instagram: '_charrylicious_',
 
