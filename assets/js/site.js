@@ -10,6 +10,8 @@
   var DAG_KORT = ['Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo'];
   var MAANDEN = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];
   var IMG = 'assets/img/';
+  var WS = D.winterslaap && D.winterslaap.aan ? D.winterslaap : null;
+  var SNEEUW = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17l17.4-10M9 3.5l3 2.2 3-2.2M9 20.5l3-2.2 3 2.2"/></svg>';
   var FLOWERS = ['flower-yellow.webp', 'flower-pink.webp', 'flower-peach.webp'];
 
   /* ---------- tijd in België ---------- */
@@ -45,19 +47,22 @@
     var dl = $('#hours'); if (!dl) return;
     var html = '';
     DAGEN.forEach(function (dag) {
-      var u = uren[dag];
+      var u = WS ? null : uren[dag];
       var cls = (u ? 'open-day' : 'closed') + (dag === vandaagNaam ? ' is-today' : '');
       var naam = dag.charAt(0).toUpperCase() + dag.slice(1) + (dag === vandaagNaam ? ' · vandaag' : '');
       html += '<div class="hrow ' + cls + '"><span>' + naam + '</span><span>' + (u ? uurTekst(u[0]) + ' tot ' + uurTekst(u[1]) : 'gesloten') + '</span></div>';
     });
     dl.innerHTML = html;
-    if (D.uitzondering) { var ex = $('#exception'); ex.textContent = D.uitzondering; ex.hidden = false; }
+    var uitz = WS ? (WS.kort + '. Daarna weer open op zaterdag en zondag van 14u tot 20u.') : D.uitzondering;
+    if (uitz) { var ex = $('#exception'); ex.textContent = uitz; ex.hidden = false; }
   })();
 
   (function () {
     var pill = $('#open-pill'); if (!pill) return;
     var u = uren[vandaagNaam]; var txt;
-    if (u && NU.min >= naarMin(u[0]) && NU.min < naarMin(u[1])) {
+    if (WS) {
+      txt = WS.kort; pill.classList.add('is-closed', 'is-winter');
+    } else if (u && NU.min >= naarMin(u[0]) && NU.min < naarMin(u[1])) {
       txt = 'Nu open tot ' + uurTekst(u[1]); pill.classList.add('is-open');
     } else if (u && NU.min < naarMin(u[0])) {
       txt = 'Vandaag open vanaf ' + uurTekst(u[0]);
@@ -83,7 +88,7 @@
 
   // eerstvolgende event in de hero
   (function () {
-    var a = $('#next-event'); var e = events[0]; if (!a || !e) return;
+    var a = $('#next-event'); var e = events[0]; if (!a || !e || WS) return;
     a.innerHTML = badge(e) + '<span class="txt"><span class="t1">' + esc(e.titel) + '</span><span class="t2">' + esc(e.uur) + (e.verplicht ? ' · reserveren verplicht' : '') + '</span></span>' +
       '<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5515B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
     a.hidden = false;
@@ -105,7 +110,7 @@
     for (var d = 1; d <= dagen; d++) {
       var dt = new Date(maand.getFullYear(), maand.getMonth(), d);
       var key = iso(dt); var ev = byIso[key];
-      var open = !!uren[DAGEN[weekdag(dt)]];
+      var open = !WS && !!uren[DAGEN[weekdag(dt)]];
       var cls = 'day' + (open ? ' open' : '') + (+dt === +VANDAAG ? ' today' : '') + (dt < VANDAAG ? ' past' : '');
       if (ev) {
         var idx = events.indexOf(ev);
@@ -121,6 +126,18 @@
   function tekenEvent() {
     var card = $('#event-card'); if (!card) return;
     var e = gekozen;
+    if (WS) {
+      card.innerHTML = '<div class="event-media winter-media"><div class="no-photo">' +
+        '<img class="deco spin" src="' + IMG + 'flower-yellow.webp" alt="" style="left:22px;bottom:22px;width:70px">' +
+        '<img class="deco spin-rev" src="' + IMG + 'flower-pink.webp" alt="" style="right:20px;top:24px;width:80px">' +
+        '<span class="flake f1">' + SNEEUW + '</span><span class="flake f2">' + SNEEUW + '</span><span class="flake f3">' + SNEEUW + '</span>' +
+        '<img src="' + IMG + 'icon-cup.webp" alt="" style="width:130px;height:auto"></div></div>' +
+        '<div class="event-body"><span class="label winter-label">Winterslaap</span>' +
+        '<h3>' + esc(WS.titel) + '</h3><p>' + esc(WS.tekst) + '</p>' +
+        '<p class="note"><strong>' + esc(WS.terug) + '</strong></p>' +
+        '<a class="btn btn-outline" href="https://www.instagram.com/' + esc(D.instagram || '_charrylicious_') + '/" target="_blank" rel="noopener">Volg ons op Instagram</a></div>';
+      return;
+    }
     if (!e) {
       card.innerHTML = '<div class="event-empty"><h3 style="font-family:var(--display);font-weight:800;font-size:32px;color:var(--kersrood);margin:0">Binnenkort meer leuks</h3><p>Hou onze Instagram in het oog voor de volgende dagschotel of het volgende event.</p><a class="btn btn-outline" href="https://www.instagram.com/' + esc(D.instagram || '_charrylicious_') + '/" target="_blank" rel="noopener">@' + esc(D.instagram || '_charrylicious_') + '</a></div>';
       return;
@@ -151,13 +168,28 @@
   }
   if (gekozen) maand = new Date(gekozen.dt.getFullYear(), gekozen.dt.getMonth(), 1);
   tekenKalender(); tekenEvent();
+  if (WS) {
+    var kaartje = $('.cal-card');
+    if (kaartje) {
+      var cover = document.createElement('div');
+      cover.className = 'winter-cover';
+      cover.innerHTML = '<span class="flake f1">' + SNEEUW + '</span><span class="flake f2">' + SNEEUW + '</span><span class="flake f3">' + SNEEUW + '</span>' +
+        '<img src="' + IMG + 'icon-cup.webp" alt="" class="cup">' +
+        '<p class="zzz" aria-hidden="true">zzz</p>' +
+        '<h3>Ssst… we slapen even</h3>' +
+        '<p>Tijdens de winterslaap staat er niets op de agenda.</p>' +
+        '<span class="pill">Tot in de lente!</span>';
+      kaartje.appendChild(cover);
+      $$('.cal-nav, .cal-legend', kaartje).forEach(function (el) { el.setAttribute('hidden', ''); });
+    }
+  }
   var prev = $('#cal-prev'), next = $('#cal-next');
   if (prev) prev.addEventListener('click', function () { maand = new Date(maand.getFullYear(), maand.getMonth() - 1, 1); tekenKalender(); });
   if (next) next.addEventListener('click', function () { maand = new Date(maand.getFullYear(), maand.getMonth() + 1, 1); tekenKalender(); });
 
   /* ---------- events voor Google (schema.org), automatisch uit de agenda ---------- */
   (function () {
-    if (!events.length) return;
+    if (!events.length || WS) return;
     var SITE = 'https://charrylicious.be/';
     var plaats = { '@type': 'Place', name: 'Charrylicious', address: { '@type': 'PostalAddress', streetAddress: D.adres || 'Avelgemstraat 121', postalCode: '8550', addressLocality: 'Zwevegem', addressCountry: 'BE' } };
     var lijst = events.map(function (e) {
@@ -187,7 +219,7 @@
   /* ---------- suggestie van het weekend ---------- */
   (function () {
     var box = $('#suggestie'); var s = D.suggestie;
-    if (!box || !s || !s.titel) return;
+    if (!box || !s || !s.titel || WS) return;
     box.innerHTML = '<img class="spin" src="' + IMG + 'flower-peach.webp" alt="">' +
       '<div class="sg-txt"><p class="kicker">Suggestie van het weekend</p><h3>' + esc(s.titel) + '</h3>' + (s.tekst ? '<p>' + esc(s.tekst) + '</p>' : '') + '</div>';
     box.hidden = false;
@@ -198,9 +230,10 @@
     var t = $('#marquee-track'); if (!t) return;
     var open = DAGEN.filter(function (d) { return uren[d]; });
     var items = [];
-    if (open.length) items.push('Open ' + open.join(' en ') + ' van ' + uurTekst(uren[open[0]][0]) + ' tot ' + uurTekst(uren[open[0]][1]));
-    items.push('Reserveren met een berichtje', 'Alles huisgemaakt', (D.adres || '') + ' in Zwevegem');
-    if (D.suggestie && D.suggestie.titel) items.push('Dit weekend: ' + D.suggestie.titel.toLowerCase());
+    if (WS) items.push(WS.kort, 'Tot in de lente!', 'Alles huisgemaakt', (D.adres || '') + ' in Zwevegem');
+    else if (open.length) items.push('Open ' + open.join(' en ') + ' van ' + uurTekst(uren[open[0]][0]) + ' tot ' + uurTekst(uren[open[0]][1]));
+    if (!WS) items.push('Reserveren met een berichtje', 'Alles huisgemaakt', (D.adres || '') + ' in Zwevegem');
+    if (!WS && D.suggestie && D.suggestie.titel) items.push('Dit weekend: ' + D.suggestie.titel.toLowerCase());
     events.slice(0, 2).forEach(function (e) { items.push(DAG_KORT[weekdag(e.dt)] + ' ' + e.dt.getDate() + '/' + (e.dt.getMonth() + 1) + ' ' + e.titel.toLowerCase()); });
     var one = items.map(function (x, i) { return '<span>' + esc(x) + '<img src="' + IMG + FLOWERS[i % 2 ? 0 : 1] + '" alt=""></span>'; }).join('');
     t.innerHTML = one + one;
