@@ -38,6 +38,16 @@ window.CHARRY = {
   // Uitzondering bovenaan bij de openingsuren (laat leeg '' als er geen is)
   uitzondering: '',
 
+  // ---------------- WINTERSLAAP ----------------
+  // aan: true = de zaak is dicht tot de lente. Zet op false als je terug open gaat.
+  winterslaap: {
+    aan: true,
+    titel: 'We zijn in winterslaap',
+    tekst: 'Na heel wat fijne babbels, lachende gezichten en heerlijke koffietjes gaat mijn koffiehuisje even slapen. Een dikke merci aan iedereen die mijn plekje zo warm en gezellig maakte!',
+    terug: 'In de lente gaat mijn deurtje opnieuw open. Tot dan, lieve koffievrienden!',
+    kort: 'In winterslaap tot de lente'
+  },
+
   // ---------------- AGENDA ----------------
   // foto: kies uit de map assets/img (bv. 'spaghetti.jpg'), of laat leeg ''
   // verplicht: true = reserveren is verplicht
